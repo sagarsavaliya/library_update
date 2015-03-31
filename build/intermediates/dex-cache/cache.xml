@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="E:\Project\Android Studio Projects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\joda-time-2.7-09e4a5e94c6982aa56a152bdde4ef7ed253debf2.jar"
+        jar="E:\Project\Android Studio Projects\RKUCentralLibrary\app\libs\joda-time-2.7.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="5599707a3eaad13e889f691b3af78c8c03842195"/>
+    <item
+        dex="E:\Project\Android Studio Projects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\ksoap2-android-assembly-2.6.0-jar-with-dependencies-8280e258b21720220e941f3a03659fb0eb97277a.jar"
+        jar="E:\Project\Android Studio Projects\RKUCentralLibrary\app\libs\ksoap2-android-assembly-2.6.0-jar-with-dependencies.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="400a2afc7073b2e68c3841db8b9b71d4182f242d"/>
+    <item
+        dex="E:\Project\Android Studio Projects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\android-support-v4-694c3cafcd88dc18b0efb790192e99a0f68a039b.jar"
+        jar="E:\Project\Android Studio Projects\RKUCentralLibrary\app\libs\android-support-v4.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="307c1cc532eabbf1d135b43e5c983c9da700449d"/>
+    <item
+        dex="E:\Project\Android Studio Projects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\additionnal-d352f854ffeb17a3f2cc2a982d3c4e071436d296.jar"
+        jar="E:\Project\Android Studio Projects\RKUCentralLibrary\app\libs\additionnal.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="bd9e8dc422bb8c8405359947fe9f4282b49f57f4"/>
+    <item
+        dex="E:\Project\Android Studio Projects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\activation-295bf53ace2c2fbd3f72eb43ee88447fececd62c.jar"
+        jar="E:\Project\Android Studio Projects\RKUCentralLibrary\app\libs\activation.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="d1257cbff6faa44c1f325ae0d9413522d4644383"/>
+    <item
+        dex="E:\Project\Android Studio Projects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\mail-45f0f7bf5efecd087b5cbad38793fd29f09fd0ad.jar"
+        jar="E:\Project\Android Studio Projects\RKUCentralLibrary\app\libs\mail.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="428e267abff0d10802ccde86b915da2c20471160"/>
+
+</pre-dex-items>
