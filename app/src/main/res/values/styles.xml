@@ -17,6 +17,13 @@
 
     </style>
 
+    <style name="ActionBar" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <!--<item name="android:background">@color/main_accent</item>-->
+        <!--<item name="android:icon">@drawable/ab_icon</item>-->
+
+        <item name="icon">@drawable/ic_launcher</item>
+    </style>
+
     <!--&lt;!&ndash; Application theme. &ndash;&gt;-->
     <!--<style name="AppTheme" parent="AppBaseTheme">-->
         <!--&lt;!&ndash; All customizations that are NOT specific to a particular API-level can go here. &ndash;&gt;-->

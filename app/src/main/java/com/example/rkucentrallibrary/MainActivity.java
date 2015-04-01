@@ -6,6 +6,7 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -38,6 +39,8 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+
 		
 		global=((Global)getApplicationContext());
 		
@@ -45,6 +48,11 @@ public class MainActivity extends ActionBarActivity {
 		    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 		    StrictMode.setThreadPolicy(policy);
 		}
+
+
+		android.support.v7.app.ActionBar supportActionBar = getSupportActionBar();
+		supportActionBar.setLogo(R.drawable.ic_launcher);
+//		supportActionBar.setDisplayHomeAsUpEnabled(true);
 		
 		editText_memberId=(EditText) this.findViewById(R.id.memberId);
 		editText_password=(EditText) this.findViewById(R.id.password);

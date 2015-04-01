@@ -12,6 +12,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,8 +41,14 @@ public class Home extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
 
+		ActionBar supportActionBar = getSupportActionBar();
+
+
+
 		loadActivity();
 	}
+
+
 
 	private void loadActivity() {
 		// Done all of My work here
