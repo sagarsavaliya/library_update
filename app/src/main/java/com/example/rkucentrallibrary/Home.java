@@ -23,6 +23,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
+
 public class Home extends ActionBarActivity {
 
 	private static final String SOAP_ACTION = "http://tempuri.org/GetData";
@@ -43,7 +45,12 @@ public class Home extends ActionBarActivity {
 
 		ActionBar supportActionBar = getSupportActionBar();
 
-
+//		FloatingActionButton button = (FloatingActionButton) findViewById(R.id.issueButton);
+//		button.setSize(FloatingActionButton.SIZE_MINI);
+//		button.setColorNormalResId(R.color.fabBtnColor);
+//		button.setColorPressedResId(R.color.fabBtnPressedColor);
+////		button.setIcon(R.drawable.ic_fab_star);
+//		button.setStrokeVisible(false);
 
 		loadActivity();
 	}

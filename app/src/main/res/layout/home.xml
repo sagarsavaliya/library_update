@@ -8,7 +8,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Issue Book"
-        android:onClick="issueBook" />
+        android:onClick="issueBook"
+        android:theme="@style/Base.Widget.AppCompat.Button"
+        style="@style/Base.Widget.AppCompat.Button"
+        android:backgroundTint="@drawable/abc_btn_default_mtrl_shape" />
 
     <TextView
         android:id="@+id/textView1"
@@ -16,12 +19,18 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Issued Books"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="6dp" />
 
     <ListView
         android:id="@+id/books"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:layout_marginTop="6dp"
+        style="@style/Widget.AppCompat.ListView.Menu"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false">
     </ListView>
 
 </LinearLayout>

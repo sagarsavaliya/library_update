@@ -1,7 +1,7 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="fill_parent"
     android:layout_gravity="center"
     android:layout_margin="20dp"
     android:orientation="vertical"
@@ -10,16 +10,32 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="top"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:id="@+id/rku_logo"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/rk_logo_small"/>
 
         <EditText
             android:id="@+id/memberId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal|center"
+            android:layout_gravity="center_horizontal"
             android:ems="10"
-            android:hint="Library Barcode ID" >
+            android:hint="Member Id Code"
+            android:singleLine="true"
+            android:inputType="textAutoComplete">
 
     <requestFocus />
 </EditText>
@@ -28,26 +44,43 @@
     android:id="@+id/password"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:inputType="textPassword"
     android:hint="Password"
-    android:inputType="textPassword" />
+    android:layout_gravity="center_horizontal"
+    android:singleLine="true" />
 
 <Button
     android:id="@+id/button1"
-    android:layout_width="fill_parent"
+    android:layout_width="120dp"
     android:layout_height="wrap_content"
-    android:layout_gravity="center"
+    android:layout_gravity="center_horizontal"
     android:text="Log In"
-    android:onClick="loginClick" />
+    android:onClick="loginClick"
+    android:theme="@style/Base.Widget.AppCompat.Button"
+    android:elevation="4dp"
+    android:backgroundTintMode="src_in"
+    android:background="#4CAF50" />
 
-<TextView
-    android:id="@+id/textView1"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:text="Guided By:"
-    android:textAppearance="?android:attr/textAppearanceSmall" />
+    </LinearLayout>
 
-<TextView
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/names_container"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Guided By:"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
     android:id="@+id/textView2"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -55,7 +88,7 @@
     android:text="Prof. Kamlesh Patel"
     android:textAppearance="?android:attr/textAppearanceMedium" />
 
-<TextView
+        <TextView
     android:id="@+id/textView3"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -63,7 +96,7 @@
     android:text="Developed By:"
     android:textAppearance="?android:attr/textAppearanceSmall" />
 
-<TextView
+        <TextView
     android:id="@+id/textView4"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -71,15 +104,14 @@
     android:text="Mr. Viral Surani"
     android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TextView
+        <TextView
     android:id="@+id/textView5"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:text="Mr. Dhaval Ankola"
     android:textAppearance="?android:attr/textAppearanceMedium" />
-
     </LinearLayout>
 
 
-</LinearLayout>
+</RelativeLayout>

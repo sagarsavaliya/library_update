@@ -3,4 +3,9 @@
     <color name="primaryColor">#EF5350</color>
     <color name="primaryColorDark">#F44336</color>
 
+    <color name="fabBtnColor">#43A047</color>
+    <color name="fabBtnPressedColor">#2E7D32</color>
+
+    <color name="white">#ffffff</color>
+
 </resources>
