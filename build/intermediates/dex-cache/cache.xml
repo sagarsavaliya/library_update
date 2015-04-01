@@ -1,41 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<pre-dex-items>
+<items version="2" >
 
     <item
-        dex="E:\Project\Android Studio Projects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\joda-time-2.7-09e4a5e94c6982aa56a152bdde4ef7ed253debf2.jar"
-        jar="E:\Project\Android Studio Projects\RKUCentralLibrary\app\libs\joda-time-2.7.jar"
+        jar="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\libs\mail.jar"
         jumboMode="false"
-        revision="20.0.0"
-        sha1="5599707a3eaad13e889f691b3af78c8c03842195"/>
+        revision="22.0.1"
+        sha1="428e267abff0d10802ccde86b915da2c20471160">
+        <dex dex="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\mail-2c936b65968bee49ee97a3b97895acf7a39c0898.jar" />
+    </item>
     <item
-        dex="E:\Project\Android Studio Projects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\ksoap2-android-assembly-2.6.0-jar-with-dependencies-8280e258b21720220e941f3a03659fb0eb97277a.jar"
-        jar="E:\Project\Android Studio Projects\RKUCentralLibrary\app\libs\ksoap2-android-assembly-2.6.0-jar-with-dependencies.jar"
+        jar="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\libs\ksoap2-android-assembly-2.6.0-jar-with-dependencies.jar"
         jumboMode="false"
-        revision="20.0.0"
-        sha1="400a2afc7073b2e68c3841db8b9b71d4182f242d"/>
+        revision="22.0.1"
+        sha1="400a2afc7073b2e68c3841db8b9b71d4182f242d">
+        <dex dex="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\ksoap2-android-assembly-2.6.0-jar-with-dependencies-80a2302342c4d8bc408709824092b6472f43bc85.jar" />
+    </item>
     <item
-        dex="E:\Project\Android Studio Projects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\android-support-v4-694c3cafcd88dc18b0efb790192e99a0f68a039b.jar"
-        jar="E:\Project\Android Studio Projects\RKUCentralLibrary\app\libs\android-support-v4.jar"
+        jar="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
         jumboMode="false"
-        revision="20.0.0"
-        sha1="307c1cc532eabbf1d135b43e5c983c9da700449d"/>
+        revision="22.0.1"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\classes-16b934cdfabbf6df1c5dc524aee42e36c4f208ba.jar" />
+    </item>
     <item
-        dex="E:\Project\Android Studio Projects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\additionnal-d352f854ffeb17a3f2cc2a982d3c4e071436d296.jar"
-        jar="E:\Project\Android Studio Projects\RKUCentralLibrary\app\libs\additionnal.jar"
+        jar="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\libs\joda-time-2.7.jar"
         jumboMode="false"
-        revision="20.0.0"
-        sha1="bd9e8dc422bb8c8405359947fe9f4282b49f57f4"/>
+        revision="22.0.1"
+        sha1="5599707a3eaad13e889f691b3af78c8c03842195">
+        <dex dex="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\joda-time-2.7-aee6361102b3990c5650caabc9f4276fee373b70.jar" />
+    </item>
     <item
-        dex="E:\Project\Android Studio Projects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\activation-295bf53ace2c2fbd3f72eb43ee88447fececd62c.jar"
-        jar="E:\Project\Android Studio Projects\RKUCentralLibrary\app\libs\activation.jar"
+        jar="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
         jumboMode="false"
-        revision="20.0.0"
-        sha1="d1257cbff6faa44c1f325ae0d9413522d4644383"/>
+        revision="22.0.1"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-5e24373c0d36f866bcb9f2b7ff50dd589164708b.jar" />
+    </item>
     <item
-        dex="E:\Project\Android Studio Projects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\mail-45f0f7bf5efecd087b5cbad38793fd29f09fd0ad.jar"
-        jar="E:\Project\Android Studio Projects\RKUCentralLibrary\app\libs\mail.jar"
+        jar="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\libs\activation.jar"
         jumboMode="false"
-        revision="20.0.0"
-        sha1="428e267abff0d10802ccde86b915da2c20471160"/>
+        revision="22.0.1"
+        sha1="d1257cbff6faa44c1f325ae0d9413522d4644383">
+        <dex dex="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\activation-5561f48cad699500c6333f903e67dd3d337b5c00.jar" />
+    </item>
+    <item
+        jar="G:\Softwares\Eclipse\eclipse\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-f9703ece8bc17844b94a15650a724da8f365634d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\libs\android-support-v4.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="307c1cc532eabbf1d135b43e5c983c9da700449d">
+        <dex dex="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\android-support-v4-bcdbd941a5d3568e39eb968ec6867ed266db664f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\libs\additionnal.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="bd9e8dc422bb8c8405359947fe9f4282b49f57f4">
+        <dex dex="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\additionnal-7c2489c9c7373ac426191ddb088ad77382e3ab21.jar" />
+    </item>
+    <item
+        jar="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.0.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
+        <dex dex="C:\Users\Varun\AndroidStudioProjects\RKUCentralLibrary\app\build\intermediates\pre-dexed\debug\classes-964f337cf3f418b9ea327d34fba025e78f70f476.jar" />
+    </item>
 
-</pre-dex-items>
+</items>

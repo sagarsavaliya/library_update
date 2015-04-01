@@ -4,10 +4,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.EditText;
 
-public class Feedback extends Activity{
+public class Feedback extends ActionBarActivity {
 
 	EditText et;
 	Global global;

@@ -4,27 +4,32 @@
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
-    <style name="AppBaseTheme" parent="android:Theme.Light">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
+
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryColorDark</item>
+        <item name="colorAccent">@color/primaryColorDark</item>
+
     </style>
 
-    <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-    	<item name="android:textViewStyle">@style/RobotoTextViewStyle</item>
-    	<item name="android:buttonStyle">@style/RobotoButtonStyle</item>
-    </style>
+    <!--&lt;!&ndash; Application theme. &ndash;&gt;-->
+    <!--<style name="AppTheme" parent="AppBaseTheme">-->
+        <!--&lt;!&ndash; All customizations that are NOT specific to a particular API-level can go here. &ndash;&gt;-->
+    	<!--<item name="android:textViewStyle">@style/RobotoTextViewStyle</item>-->
+    	<!--<item name="android:buttonStyle">@style/RobotoButtonStyle</item>-->
+    <!--</style>-->
 
-	<style name="RobotoTextViewStyle" parent="android:Widget.TextView">
-    	<item name="android:fontFamily">sans-serif-light</item>
-	</style>
+	<!--<style name="RobotoTextViewStyle" parent="android:Widget.TextView">-->
+    	<!--<item name="android:fontFamily">sans-serif-light</item>-->
+	<!--</style>-->
 
-	<style name="RobotoButtonStyle" parent="android:Widget.Holo.Button">
-    	<item name="android:fontFamily">sans-serif-light</item>
-	</style>
+	<!--<style name="RobotoButtonStyle" parent="android:Widget.Holo.Button">-->
+    	<!--<item name="android:fontFamily">sans-serif-light</item>-->
+	<!--</style>-->
 
 </resources>

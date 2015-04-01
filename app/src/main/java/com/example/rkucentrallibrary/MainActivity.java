@@ -15,11 +15,12 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 
-public class MainActivity extends Activity {
+public class MainActivity extends ActionBarActivity {
 	
 	private static final String SOAP_ACTION = "http://tempuri.org/LoginTest";
     private static final String OPERATION_NAME = "LoginTest";

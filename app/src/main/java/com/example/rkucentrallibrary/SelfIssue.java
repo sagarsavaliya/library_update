@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,7 +25,7 @@ import android.widget.TextView;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-public class SelfIssue extends Activity {
+public class SelfIssue extends ActionBarActivity {
 
 	private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
 	private static final String SOAP_ADDRESS = "http://172.172.98.98/webopac/webservicedemo.asmx";
