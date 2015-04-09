@@ -49,7 +49,7 @@ public class Home extends ActionBarActivity {
 //		button.setSize(FloatingActionButton.SIZE_MINI);
 //		button.setColorNormalResId(R.color.fabBtnColor);
 //		button.setColorPressedResId(R.color.fabBtnPressedColor);
-////		button.setIcon(R.drawable.ic_fab_star);
+//		button.setIcon(R.drawable.ic_fab_star);
 //		button.setStrokeVisible(false);
 
 		loadActivity();
@@ -62,11 +62,13 @@ public class Home extends ActionBarActivity {
 
 		global = ((Global) getApplicationContext());
 
-		Bundle extras = getIntent().getExtras();
+		/*Bundle extras = getIntent().getExtras();
 		if (extras != null) {
 			memberid = extras.getString("memberid");
 			// tv.setText(memberid);
-		}
+		}*/
+
+        memberid = global.getMember();
 
 		SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE,
 				OPERATION_NAME);
@@ -93,7 +95,8 @@ public class Home extends ActionBarActivity {
 
 			if (response.toString().equals(" ")) {
 
-				this.showAlert("Go and get some books from Central Library @ RK University.");
+//				this.showAlert("Go and get some books from Central Library @ RK University.");
+
 			} else {
 
 				s = response.toString().split("~");
@@ -170,7 +173,7 @@ public class Home extends ActionBarActivity {
 	private static final String SOAP_ACTION1 = "http://tempuri.org/KMPService";
 	private static final String OPERATION_NAME1 = "KMPService";
 	private static final String WSDL_TARGET_NAMESPACE1 = "http://tempuri.org/";
-	private static final String SOAP_ADDRESS1 = "http://172.172.98.98/webopac/securewebservice.asmx";
+	private static final String SOAP_ADDRESS1 = "http://27.54.180.75/webopac/securewebservice.asmx";
 
 	// http://27.54.180.75/webopac/securewebservice.asmx
 	// http://172.172.98.98/webopac/securewebservice.asmx

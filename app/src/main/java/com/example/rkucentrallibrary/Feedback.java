@@ -4,88 +4,103 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RatingBar;
+import android.widget.TextView;
+
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.PropertyInfo;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
 
 public class Feedback extends ActionBarActivity {
 
-	EditText et;
-	Global global;
-	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.feedback);
+    EditText et;
+    Global global;
+    RatingBar ratingBar;
 
-		global = ((Global) getApplicationContext());
-		EditText et=(EditText) findViewById(R.id.editText1);
+    private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
+    private static final String SOAP_ADDRESS = "http://27.54.180.75/webopac/webservicedemo.asmx";
+    private static final String SOAP_ACTION = "http://tempuri.org/SubmitComment";
+    private static final String OPERATION_NAME = "SubmitComment";
 
-	}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.feedback);
 
-	public void submitbtn(View v) {
-		DownloadWebPageTask task = new DownloadWebPageTask();
-		task.execute(new String[] { "http://www.vogella.com" });
-		
-	}
-	
-	private class DownloadWebPageTask extends AsyncTask<String, Void, String> {
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                    .permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
 
-		@Override
-		protected void onPostExecute(String result) {
+        global = ((Global) getApplicationContext());
+        et=(EditText) findViewById(R.id.editText1);
+        ratingBar= (RatingBar) findViewById(R.id.ratingBar);
+    }
 
-			showAlert(result);
-		}
+    public void Submitbtn(View v) {
 
-		@Override
-		protected String doInBackground(String... arg0) {
+        try{
 
-			Mail m = new Mail("central.library.rku@gmail.com", "Library@105");
+            SoapObject request1 = new SoapObject(WSDL_TARGET_NAMESPACE,OPERATION_NAME);
 
-			// String[] toArr = {"kamalmpatel@gmail.com"};
+            PropertyInfo pi1 = new PropertyInfo();
+            pi1.setName("memcd");
+            pi1.setValue(global.getMember());
+            pi1.setType(String.class);
+            request1.addProperty(pi1);
+            pi1 = new PropertyInfo();
+            pi1.setName("comment");
+            pi1.setValue(et.getText().toString());
+            pi1.setType(String.class);
+            request1.addProperty(pi1);
 
-			String[] toArr = global.getEmails();
+            int rating = (int) ratingBar.getRating();
 
-			m.setTo(toArr);
-//			m.setFrom("central.library.rku@gmail.com");
-			m.setFrom("dhavalankola@gmail.com@gmail.com");
-			m.setSubject("Feedback from RKU Central Library App.");
+            pi1 = new PropertyInfo();
+            pi1.setName("rating");
+            pi1.setValue(rating);
+            pi1.setType(Float.class);
+            request1.addProperty(pi1);
 
-			String message = "Hello Sir, I am ("
-					+ global.getMember()
-					+ ") and this is my feedback"
-					+ "\n\n"
-					+ et.getText()
-					+ "Thank you";
+            SoapSerializationEnvelope envelope1 = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+            envelope1.dotNet = true;
+            envelope1.setOutputSoapObject(request1);
 
-			// m.setBody("Email body. Test Email.");
+            HttpTransportSE httpTransport1 = new HttpTransportSE(SOAP_ADDRESS);
 
-			m.setBody(message.toString());
+            String res;
 
-			try {
-				// m.addAttachment("/sdcard/filelocation");
+            httpTransport1.call(SOAP_ACTION, envelope1);
+            Object response1 = envelope1.getResponse();
 
-				if (m.send()) {
-					return "Feedback received successfully.";
-				} else {
-					return "Feedback not sent.\n Try again";
-				}
-			} catch (Exception e) {
-				// Toast.makeText(MailApp.this,
-				// "There was a problem sending the email.",
-				// Toast.LENGTH_LONG).show();
+            res = response1.toString();
+            if (res.contains("true")){
+                this.showAlert("thank you");
+            }
+            else if (res.contains("false")){
+                this.showAlert("Please follow rules and try again");
+            }
+            else {
+                this.showAlert(res);
+            }
+        }
 
-				return e.toString();
-			}
-			// return null;
+        catch (Exception ex) {
+            this.showAlert(ex.toString());
+        }
+    }
 
-		}
-	}
-
-	public void showAlert(String msg) {
-		AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-		alertDialog.setTitle("Alert");
-		alertDialog.setMessage(msg);
-		alertDialog.show();
-	}
+    public void showAlert(String msg) {
+        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        alertDialog.setTitle("Alert");
+        alertDialog.setMessage(msg);
+        alertDialog.show();
+    }
 }

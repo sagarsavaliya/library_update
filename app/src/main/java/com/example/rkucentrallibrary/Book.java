@@ -118,7 +118,7 @@ public class Book extends ActionBarActivity {
 			pd = new ProgressDialog(this);
 			pd.setMessage("Downloading Image");
 			iv = (ImageView) findViewById(R.id.bookimg);
-			new DownloadImageTask(iv).execute(response.toString());
+			new DownloadImageTask(iv).execute(imgurl);
 		} 
 		
 		catch (Exception ex) {

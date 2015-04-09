@@ -1473,8 +1473,8 @@ containing a value of this type.
         public static final int rk_logo_small=0x7f02003b;
     }
     public static final class id {
-        public static final int Submit=0x7f08005b;
-        public static final int accno=0x7f08005d;
+        public static final int Submit=0x7f08005c;
+        public static final int accno=0x7f08005e;
         public static final int accno1=0x7f080054;
         public static final int action_bar=0x7f080037;
         public static final int action_bar_activity_content=0x7f080000;
@@ -1484,20 +1484,21 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f080025;
         public static final int action_bar_title=0x7f080024;
         public static final int action_context_bar=0x7f080038;
-        public static final int action_feedback=0x7f08005f;
+        public static final int action_feedback=0x7f080060;
         public static final int action_menu_divider=0x7f080002;
         public static final int action_menu_presenter=0x7f080003;
         public static final int action_mode_bar=0x7f080034;
         public static final int action_mode_bar_stub=0x7f080033;
         public static final int action_mode_close_button=0x7f080026;
-        public static final int action_refresh=0x7f080060;
+        public static final int action_refresh=0x7f080061;
+        public static final int action_settings=0x7f080062;
         public static final int activity_chooser_view_content=0x7f080027;
         public static final int always=0x7f08001c;
         public static final int author1=0x7f080052;
         public static final int ava=0x7f080059;
         public static final int beginning=0x7f080019;
         public static final int bookimg=0x7f080050;
-        public static final int books=0x7f08005c;
+        public static final int books=0x7f08005d;
         public static final int button1=0x7f080048;
         public static final int checkbox=0x7f08002f;
         public static final int collapseActionView=0x7f08001d;
@@ -1524,7 +1525,7 @@ containing a value of this type.
         public static final int left=0x7f080016;
         public static final int listMode=0x7f08000b;
         public static final int list_item=0x7f08002b;
-        public static final int logout=0x7f080061;
+        public static final int logout=0x7f080063;
         public static final int memberId=0x7f080046;
         public static final int middle=0x7f08001b;
         public static final int mini=0x7f080015;
@@ -1536,10 +1537,11 @@ containing a value of this type.
         public static final int progress_circular=0x7f080007;
         public static final int progress_horizontal=0x7f080008;
         public static final int radio=0x7f080031;
+        public static final int ratingBar=0x7f08005b;
         public static final int renew1=0x7f080058;
         public static final int right=0x7f080017;
         public static final int rku_logo=0x7f080045;
-        public static final int scan_button=0x7f08005e;
+        public static final int scan_button=0x7f08005f;
         public static final int scrollView1=0x7f08004f;
         public static final int search_badge=0x7f08003b;
         public static final int search_bar=0x7f08003a;
@@ -1611,7 +1613,8 @@ containing a value of this type.
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
-        public static final int option=0x7f0c0001;
+        public static final int menu_main_activity2=0x7f0c0001;
+        public static final int option=0x7f0c0002;
     }
     public static final class string {
         public static final int Feedback=0x7f0a0000;

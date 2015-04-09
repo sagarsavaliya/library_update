@@ -4,22 +4,20 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <!--<uses-sdk-->
-        <!--android:minSdkVersion="14"-->
-        <!--android:targetSdkVersion="22" />-->
+    <!-- <uses-sdk -->
+    <!-- android:minSdkVersion="14" -->
+    <!-- android:targetSdkVersion="22" /> -->
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.example.rkucentrallibrary.Global"
+        android:name=".Global"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
         <activity
-            android:name="com.example.rkucentrallibrary.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -29,32 +27,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.rkucentrallibrary.Home"
+            android:name=".Home"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.example.rkucentrallibrary.Book"
+            android:name=".Book"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.example.rkucentrallibrary.SelfIssue"
+            android:name=".SelfIssue"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.example.rkucentrallibrary.BookIssue"
+            android:name=".BookIssue"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
-        <!--<activity-->
-            <!--android:name="com.example.rkucentrallibrary.bookdata"-->
-            <!--android:label="@string/app_name"-->
-            <!--android:screenOrientation="portrait" >-->
-        <!--</activity>-->
+        <!-- <activity -->
+        <!-- android:name="com.example.rkucentrallibrary.bookdata" -->
+        <!-- android:label="@string/app_name" -->
+        <!-- android:screenOrientation="portrait" > -->
+        <!-- </activity> -->
         <activity
-            android:name="com.example.rkucentrallibrary.Feedback"
+            android:name=".Feedback"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>

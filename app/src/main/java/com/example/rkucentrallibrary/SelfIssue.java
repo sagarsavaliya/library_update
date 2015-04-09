@@ -1,14 +1,5 @@
 package com.example.rkucentrallibrary;
 
-import org.ksoap2.SoapEnvelope;
-import org.ksoap2.serialization.PropertyInfo;
-import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpTransportSE;
-import org.kxml2.kdom.Element;
-import org.kxml2.kdom.Node;
-
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -24,6 +15,14 @@ import android.widget.TextView;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.PropertyInfo;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
+import org.kxml2.kdom.Element;
+import org.kxml2.kdom.Node;
 
 public class SelfIssue extends ActionBarActivity {
 
@@ -51,7 +50,7 @@ public class SelfIssue extends ActionBarActivity {
 	TextView author1;
 	TextView accno1;
 	TextView ava1;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 

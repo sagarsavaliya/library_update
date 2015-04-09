@@ -1,3 +1,14 @@
+
+/*
+
+
+This activity is not in use,
+use selfissue.java
+
+
+
+
+*/
 package com.example.rkucentrallibrary;
 
 import org.ksoap2.SoapEnvelope;

@@ -27,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
 	private static final String OPERATION_NAME = "LoginTest";
 	private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
 	//private static final String SOAP_ADDRESS ="http://10.0.2.2/logindemo2/DemoWebService.asmx";
-	private static final String SOAP_ADDRESS ="http://27.54.180.75/webopac/webservicedemo.asmx";
+	private static final String SOAP_ADDRESS ="http://172.172.98.98/webopac/webservicedemo.asmx";
 
 	EditText editText_memberId;
 	EditText editText_password;
@@ -140,7 +140,7 @@ public class MainActivity extends ActionBarActivity {
 					editor.commit();
 
 					Intent i=new Intent(this,Home.class);
-					i.putExtra("memberid",memberId.toUpperCase());
+//					i.putExtra("memberid",memberId.toUpperCase());
 					startActivity(i);
 				}
 			}
