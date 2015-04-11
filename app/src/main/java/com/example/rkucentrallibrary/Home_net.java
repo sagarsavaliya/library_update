@@ -1,14 +1,5 @@
 package com.example.rkucentrallibrary;
 
-import org.ksoap2.SoapEnvelope;
-import org.ksoap2.serialization.PropertyInfo;
-import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpTransportSE;
-import org.kxml2.kdom.Element;
-import org.kxml2.kdom.Node;
-
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,23 +13,27 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.getbase.floatingactionbutton.FloatingActionButton;
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.PropertyInfo;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
+import org.kxml2.kdom.Element;
+import org.kxml2.kdom.Node;
 
-public class Home extends ActionBarActivity {
+public class Home_net extends ActionBarActivity {
 
     private static final String SOAP_ACTION = "http://tempuri.org/GetData";
     private static final String OPERATION_NAME = "GetData";
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
-    private static final String SOAP_ADDRESS = "http://172.172.98.98/webopac/webservicedemo.asmx";
-//    private static final String SOAP_ADDRESS = "http://27.54.180.75/webopac/webservicedemo.asmx";
+    //	private static final String SOAP_ADDRESS = "http://172.172.98.98/webopac/webservicedemo.asmx";
+    private static final String SOAP_ADDRESS = "http://27.54.180.75/webopac/webservicedemo.asmx";
 
     private static final String SOAP_ACTION1 = "http://tempuri.org/KMPService";
     private static final String OPERATION_NAME1 = "KMPService";
     private static final String WSDL_TARGET_NAMESPACE1 = "http://tempuri.org/";
     private static final String SOAP_ADDRESS1 = "http://172.172.98.98/webopac/securewebservice.asmx";
-//    private static final String SOAP_ADDRESS1 = "http://27.54.180.75/webopac/securewebservice.asmx";
 
     // http://27.54.180.75/webopac/securewebservice.asmx
     // http://172.172.98.98/webopac/securewebservice.asmx
@@ -54,9 +49,7 @@ public class Home extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
-        global = ((Global) getApplicationContext());
-
-//		ActionBar supportActionBar = getSupportActionBar();
+        ActionBar supportActionBar = getSupportActionBar();
 
 //		FloatingActionButton button = (FloatingActionButton) findViewById(R.id.issueButton);
 //		button.setSize(FloatingActionButton.SIZE_MINI);
@@ -72,7 +65,7 @@ public class Home extends ActionBarActivity {
     private void loadActivity() {
         // Done all of My work here
 
-
+        global = ((Global) getApplicationContext());
 
 		/*Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -91,7 +84,8 @@ public class Home extends ActionBarActivity {
         pi.setType(String.class);
         request.addProperty(pi);
 
-        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
+                SoapEnvelope.VER11);
         envelope.dotNet = true;
         envelope.setOutputSoapObject(request);
 
@@ -108,8 +102,6 @@ public class Home extends ActionBarActivity {
 
 //				this.showAlert("Go and get some books from Central Library @ RK University.");
 
-                Toast.makeText(this, "You don't have any book", Toast.LENGTH_LONG).show();
-                Toast.makeText(this, "Issue books using Self-Issue", Toast.LENGTH_LONG).show();
             } else {
 
                 s = response.toString().split("~");
@@ -131,7 +123,7 @@ public class Home extends ActionBarActivity {
                 listView = (ListView) findViewById(R.id.books);
                 listView.setAdapter(adapter);
 
-                final Intent inte = new Intent(this, Book.class);
+                final Intent inte = new Intent(this, Book_net.class);
 
                 listView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -185,57 +177,7 @@ public class Home extends ActionBarActivity {
 
 
     public void issueBook(View v) {
-
-        SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE1,
-                OPERATION_NAME1);
-        SoapSerializationEnvelope envelope1 = new SoapSerializationEnvelope(
-                SoapEnvelope.VER10);
-
-        envelope1.env = "http://schemas.xmlsoap.org/soap/envelope/";
-        envelope1.headerOut = new Element[1];
-        envelope1.headerOut[0] = buildAuthHeader();
-        envelope1.dotNet = true;
-        envelope1.setOutputSoapObject(request);
-
-        HttpTransportSE httpTransport1 = new HttpTransportSE(SOAP_ADDRESS1);
-
-        try {
-
-            httpTransport1.call(SOAP_ACTION1, envelope1);
-            Object response = envelope1.getResponse();
-
-            if (response.toString().equals("Hello World")) {
-
-                Intent i = new Intent(this, SelfIssue.class);
-                this.startActivity(i);
-            } else {
-
-                this.showAlert("Please update app");
-            }
-
-        } catch (Exception ex) {
-            // this.showAlert(ex.toString());
-            this.showAlert("Books can be issued from library network only");
-        }
-    }
-
-    private Element buildAuthHeader() {
-        String USR = global.getusr();
-        String PWD = global.getpwd();
-
-        Element h = new Element().createElement("http://tempuri.org/",
-                "UserData");
-        Element username = new Element().createElement("http://tempuri.org/",
-                "usr");
-        username.addChild(Node.TEXT, USR);
-        h.addChild(Node.ELEMENT, username);
-        Element pass = new Element()
-                .createElement("http://tempuri.org/", "pwd");
-        pass.addChild(Node.TEXT, PWD);
-        h.addChild(Node.ELEMENT, pass);
-
-        return h;
-
+        this.showAlert("Books can be issued from library network only");
     }
 
     @Override
@@ -243,6 +185,7 @@ public class Home extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         getMenuInflater().inflate(R.menu.option, menu);
+
         return true;
     }
 
@@ -251,18 +194,20 @@ public class Home extends ActionBarActivity {
         // Handle item selection
 
         switch (item.getItemId()) {
+
 //		case R.id.action_refresh:
 //			this.onCreate(null);
 //			loadActivity();
 //			break;
 
+
             case R.id.action_statistics:
-                Intent inte = new Intent(this, Statistics.class);
+                Intent inte = new Intent(this, Statistics_net.class);
                 startActivity(inte);
                 break;
 
             case R.id.action_feedback:
-                Intent in = new Intent(this, Feedback.class);
+                Intent in = new Intent(this, Feedback_net.class);
                 startActivity(in);
                 break;
 

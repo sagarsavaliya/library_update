@@ -9,49 +9,52 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
         android:text="Feedback"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tell us your problems"
+        android:layout_gravity="center_horizontal"
+        android:text="Got any suggestions or comments?"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
         android:id="@+id/editText1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0.20"
         android:ems="10"
-        android:inputType="textMultiLine"
-        android:layout_weight="0.20">
+        android:inputType="textMultiLine">
 
         <requestFocus />
     </EditText>
 
     <RatingBar
+        android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ratingBar"
         android:layout_gravity="center_horizontal"
         android:numStars="5"
         android:rating="3"
         android:stepSize="1" />
 
     TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="3.0"
-        android:id="@+id/ratingview"
-        android:layout_gravity="center_horizontal" />
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:text="3.0"
+    android:id="@+id/ratingview"
+    android:layout_gravity="center_horizontal" />
 
     <Button
         android:id="@+id/Submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit"
-        android:onClick="Submitbtn" />
+        android:onClick="Submitbtn"
+        android:text="Submit" />
 
 </LinearLayout>

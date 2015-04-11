@@ -29,21 +29,19 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Book extends ActionBarActivity {
+public class Book_net extends ActionBarActivity {
 
     private static final String SOAP_ACTION = "http://tempuri.org/DoRenew";
     private static final String OPERATION_NAME = "DoRenew";
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
-    private static final String SOAP_ADDRESS = "http://172.172.98.98/webopac/securewebservice.asmx";
+    private static final String SOAP_ADDRESS = "http://27.54.180.75/webopac/securewebservice.asmx";
     private static final String SOAP_ACTION1 = "http://tempuri.org/getBookImageURL";
-    //    private static final String SOAP_ADDRESS = "http://27.54.180.75/webopac/securewebservice.asmx";
     private static final String OPERATION_NAME1 = "getBookImageURL";
     private static final String WSDL_TARGET_NAMESPACE1 = "http://tempuri.org/";
-    private static final String SOAP_ADDRESS1 = "http://172.172.98.98/webopac/webservicedemo.asmx";
+    private static final String SOAP_ADDRESS1 = "http://27.54.180.75/webopac/webservicedemo.asmx";
     Date duedate;
-    //    private static final String SOAP_ADDRESS1 = "http://27.54.180.75/webopac/webservicedemo.asmx";
     String d;
-    //	Date finalduedate;
+    Date finalduedate;
     int renewcount;
     String datenew;
     TextView title1;
@@ -113,13 +111,10 @@ public class Book extends ActionBarActivity {
 
             String imgurl = response.toString();
 
-
-            imgurl.replace("http://27.54.180.75", "http://172.172.98.98");
             pd = new ProgressDialog(this);
             pd.setMessage("Downloading Image");
             iv = (ImageView) findViewById(R.id.bookimg);
             new DownloadImageTask(iv).execute(imgurl);
-
         } catch (Exception ex) {
             this.showAlert(ex.toString());
         }
@@ -158,7 +153,7 @@ public class Book extends ActionBarActivity {
             due1.setText(sdf.format(duedate));
             issue1.setText(sdf.format(issuedate));
 
-        } catch (Exception ignored) {
+        } catch (Exception e) {
 
         }
     }
@@ -230,9 +225,9 @@ public class Book extends ActionBarActivity {
 
             if (response.toString().contains("done successfully")) {
                 DownloadWebPageTask task = new DownloadWebPageTask();
-                task.execute("http://www.vogella.com");
+                task.execute(new String[]{"http://www.vogella.com"});
             } else {
-                Toast.makeText(Book.this, "Unable to send mail",
+                Toast.makeText(Book_net.this, "Unable to send mail",
                         Toast.LENGTH_LONG).show();
             }
 
@@ -248,6 +243,23 @@ public class Book extends ActionBarActivity {
         alertDialog.setTitle("Alert");
         alertDialog.setMessage(msg);
         alertDialog.show();
+    }
+
+    public void showAlertButton(String msg) {
+        final Intent homepage2 = new Intent(this, Home.class);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(msg).setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        startActivity(homepage2);
+                    }
+                });
+
+        AlertDialog alert = builder.create();
+        alert.show();
+
     }
 
     @Override
@@ -309,7 +321,7 @@ public class Book extends ActionBarActivity {
 
             // m.setBody("Email body. Test Email.");
 
-            m.setBody(message);
+            m.setBody(message.toString());
 
             try {
                 // m.addAttachment("/sdcard/filelocation");
@@ -320,7 +332,9 @@ public class Book extends ActionBarActivity {
                     return "Email was not sent.";
                 }
             } catch (Exception e) {
-                // Toast.makeText(this,"There was a problem sending the email.",Toast.LENGTH_LONG).show();
+                // Toast.makeText(MailApp.this,
+                // "There was a problem sending the email.",
+                // Toast.LENGTH_LONG).show();
 
                 return e.toString();
             }

@@ -1,16 +1,13 @@
 package com.example.rkucentrallibrary;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RatingBar;
-import android.widget.TextView;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
@@ -18,10 +15,10 @@ import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
-public class Feedback extends ActionBarActivity {
+public class Feedback_net extends ActionBarActivity {
 
     private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
-    private static final String SOAP_ADDRESS = "http://172.172.98.98/webopac/webservicedemo.asmx";
+    private static final String SOAP_ADDRESS = "http://27.54.180.75/webopac/webservicedemo.asmx";
     private static final String SOAP_ACTION = "http://tempuri.org/SubmitComment";
     private static final String OPERATION_NAME = "SubmitComment";
     EditText et;
@@ -83,7 +80,7 @@ public class Feedback extends ActionBarActivity {
             res = response1.toString();
             if (res.contains("true")) {
                 this.showAlert("Thank You for your valuable feedback");
-                Intent intent = new Intent(this, Home.class);
+                Intent intent = new Intent(this, Home_net.class);
                 startActivity(intent);
             } else if (res.contains("false")) {
                 this.showAlert("Please follow rules and try again");

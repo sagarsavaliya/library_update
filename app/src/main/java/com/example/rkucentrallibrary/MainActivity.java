@@ -9,16 +9,20 @@ import org.ksoap2.transport.HttpTransportSE;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.View;
+import android.view.Window;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
@@ -26,14 +30,14 @@ public class MainActivity extends ActionBarActivity {
 	private static final String SOAP_ACTION = "http://tempuri.org/LoginTest";
 	private static final String OPERATION_NAME = "LoginTest";
 	private static final String WSDL_TARGET_NAMESPACE = "http://tempuri.org/";
-	//private static final String SOAP_ADDRESS ="http://10.0.2.2/logindemo2/DemoWebService.asmx";
 	private static final String SOAP_ADDRESS ="http://172.172.98.98/webopac/webservicedemo.asmx";
+    private static final String SOAP_ADDRESS1 = "http://27.54.180.75/webopac/webservicedemo.asmx";
 
 	EditText editText_memberId;
 	EditText editText_password;
 	SharedPreferences sharedpreferences;
-
-	Global global;
+    CheckBox cb;
+    Global global;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +54,13 @@ public class MainActivity extends ActionBarActivity {
 		}
 
 
-		android.support.v7.app.ActionBar supportActionBar = getSupportActionBar();
+        android.support.v7.app.ActionBar supportActionBar = getSupportActionBar();
 		supportActionBar.setLogo(R.drawable.ic_launcher);
 //		supportActionBar.setDisplayHomeAsUpEnabled(true);
 
 		editText_memberId=(EditText) this.findViewById(R.id.memberId);
 		editText_password=(EditText) this.findViewById(R.id.password);
+        cb = (CheckBox) findViewById(R.id.checkBoxI);
 
 		sharedpreferences = getSharedPreferences("MyPrefs",Context.MODE_PRIVATE);
 
@@ -63,17 +68,10 @@ public class MainActivity extends ActionBarActivity {
 		{
 			editText_memberId.setText(sharedpreferences.getString("MemberId",""));
 			editText_password.requestFocus();
-		}
-	}
-
-	public void showAlert(String msg){
-
-		AlertDialog alertDialog=new AlertDialog.Builder(this).create();
-		alertDialog.setTitle("Alert");
-		alertDialog.setMessage(msg);
-		alertDialog.show();
-	}
-
+		} else {
+            overlay();
+        }
+    }
 
 
 	public void loginClick(View v){
@@ -82,78 +80,123 @@ public class MainActivity extends ActionBarActivity {
 		String password=editText_password.getText().toString();
 
 
-		if(memberId.trim().length()==0 || password.trim().length()==0){
+        if(memberId.trim().length()==0 || password.trim().length()==0){
 
 			this.showAlert("Invalid Barcode ID or Password");
-		}
+		} else {
 
-		else{
+            if (cb.isChecked()) {
 
-			SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, OPERATION_NAME);
+                SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, OPERATION_NAME);
 
-			PropertyInfo pi=new PropertyInfo();
-			pi.setName("memberid");
-			pi.setValue(memberId);
-			pi.setType(String.class);
-			request.addProperty(pi);
-			pi=new PropertyInfo();
-			pi.setName("password");
-			pi.setValue(password);
-			pi.setType(String.class);
-			request.addProperty(pi);
+                PropertyInfo pi = new PropertyInfo();
+                pi.setName("memberid");
+                pi.setValue(memberId);
+                pi.setType(String.class);
+                request.addProperty(pi);
+                pi = new PropertyInfo();
+                pi.setName("password");
+                pi.setValue(password);
+                pi.setType(String.class);
+                request.addProperty(pi);
 
-			SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-			envelope.dotNet = true;
-			envelope.setOutputSoapObject(request);
+                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                envelope.dotNet = true;
+                envelope.setOutputSoapObject(request);
 
-			HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS);
-
-
+                HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS1);
 
 
-			try
-			{
+                try {
 
-				httpTransport.call(SOAP_ACTION, envelope);
-				Object response = envelope.getResponse();
-
+                    httpTransport.call(SOAP_ACTION, envelope);
+                    Object response = envelope.getResponse();
 
 
-				// if(response.toString().equals("false")){
-				if(response.toString().equals("none")){
+                    // if(response.toString().equals("false")){
+                    if (response.toString().equals("none")) {
 
-					this.showAlert("Incorrect Barcode ID or Password");
+                        this.showAlert("Incorrect Barcode ID or Password");
 
-				}
-				else if(response.toString().equals("C")){
+                    } else if (response.toString().equals("C")) {
 
-					this.showAlert("Sorry, You are suspended. Kindly contact librarian.");
+                        this.showAlert("Sorry, You are suspended. Kindly contact librarian.");
 
-				}
-				else{
+                    } else {
 
-					global.setEmails(response.toString().split(","));
-					global.setMember(memberId);
+                        global.setEmails(response.toString().split(","));
+                        global.setMember(memberId);
 
-					Editor editor = sharedpreferences.edit();
-					editor.putString("MemberId",memberId);
-					editor.commit();
+                        Editor editor = sharedpreferences.edit();
+                        editor.putString("MemberId", memberId);
+                        editor.apply();
 
-					Intent i=new Intent(this,Home.class);
-//					i.putExtra("memberid",memberId.toUpperCase());
-					startActivity(i);
-				}
-			}
-			catch (Exception exception)
-			{
-
-				this.showAlert("Opps, There seems to be a problem with your internet connection.");
-
-			}
+                        Intent i = new Intent(this, Home_net.class);
+//                        i.putExtra("memberid",memberId.toUpperCase());
+                        startActivity(i);
+                    }
+                } catch (Exception exception) {
+                    this.showAlert("Oops, There seems to be a problem with your internet connection.");
+                }
 
 
+// SOAP_ADDRESS is different from here
 
-		}
+            } else {
+
+                SoapObject request = new SoapObject(WSDL_TARGET_NAMESPACE, OPERATION_NAME);
+
+                PropertyInfo pi = new PropertyInfo();
+                pi.setName("memberid");
+                pi.setValue(memberId);
+                pi.setType(String.class);
+                request.addProperty(pi);
+                pi = new PropertyInfo();
+                pi.setName("password");
+                pi.setValue(password);
+                pi.setType(String.class);
+                request.addProperty(pi);
+
+                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                envelope.dotNet = true;
+                envelope.setOutputSoapObject(request);
+
+                HttpTransportSE httpTransport = new HttpTransportSE(SOAP_ADDRESS);
+
+
+                try {
+
+                    httpTransport.call(SOAP_ACTION, envelope);
+                    Object response = envelope.getResponse();
+
+
+                    // if(response.toString().equals("false")){
+                    if (response.toString().equals("none")) {
+
+                        this.showAlert("Incorrect Barcode ID or Password");
+
+                    } else if (response.toString().equals("C")) {
+
+                        this.showAlert("Sorry, You are suspended. Kindly contact librarian.");
+
+                    } else {
+
+                        global.setEmails(response.toString().split(","));
+                        global.setMember(memberId);
+
+                        Editor editor = sharedpreferences.edit();
+                        editor.putString("MemberId", memberId);
+                        editor.apply();
+
+                        Intent i = new Intent(this, Home.class);
+                        //					i.putExtra("memberid",memberId.toUpperCase());
+                        startActivity(i);
+                    }
+                } catch (Exception exception) {
+                    this.showAlert("Oops, There seems to be a problem with your internet connection.");
+                }
+            }
+        }
 
 	}
 
@@ -180,4 +223,36 @@ public class MainActivity extends ActionBarActivity {
 
 	}
 
+    public void aboutclick(View view) {
+
+        Intent i = new Intent(this, AboutUs.class);
+        startActivity(i);
+    }
+
+
+    public void overlay() {
+
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        dialog.setContentView(R.layout.coach_mark);
+        dialog.setCanceledOnTouchOutside(true);
+        //for dismissing anywhere you touch
+        View masterView = dialog.findViewById(R.id.coach_mark_master_view);
+        masterView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+
+    public void showAlert(String msg) {
+
+        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        alertDialog.setTitle("Alert");
+        alertDialog.setMessage(msg);
+        alertDialog.show();
+    }
 }
